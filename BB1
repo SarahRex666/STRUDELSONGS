@@ -1,0 +1,22 @@
+setcpm(140/4)
+
+stack(
+
+s("tr909_bd"),
+s("amen/4").fit()
+  .scrub("{.25:1 .75:1 .5:1 .75:1 }")
+  .sometimesBy(0.25, ply("2 | 4")),
+
+note("1 3".sub(12)).scale("D:minor").s("supersaw")
+  .slow(8)
+  .spread(.8)
+  .detune(.2)
+  ._scope().gain(.5),
+
+note("7 | 5 | 1 | 8".add(12)).scale("D:minor")
+  .fast(4)
+  .s("sine")
+  .room(.6)
+  
+
+).compressor("-10:10:10:.002:.02")
