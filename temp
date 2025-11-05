@@ -11,13 +11,25 @@
 //    ██║  ██╗██║ ╚████║██║ ╚████╔╝ ███████╗███████║
 //    ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝  ╚══════╝╚══════╝
 
+
+
                // ＡＬＬＫＮＩＶＥＳ  //  
+
+
+const light = slider(1,0,1)
+
+const sizzle = slider(300,300,10000)
+
+const shadow = slider(0,0,1)
 
 
 //DRUMS
 
-const boots = "rolandtr808_bd"
+samples({amen: 'https://sarahrex666.github.io/STRUDELSONGS/amen.wav'})
+
+const boots = "rolandtr909_bd"
 const cats = "rolandtr909_cp"
+const amen = 'https://sarahrex666.github.io/STRUDELSONGS/amen.wav'
 
 //FX
 
