@@ -1,0 +1,82 @@
+const bpc = 4; // beats per cycle (bar in 4/4)
+const ws = new WebSocket('ws://localhost:16800');
+ws.onmessage = e => {
+  const { bpm } = JSON.parse(e.data);
+  setcps((bpm / 60) / bpc); // convert BPM -> cycles/sec
+};
+
+
+
+//    ██████╗ ██╗     ██╗     
+//    ██╔══██╗██║     ██║     
+//    ███████║██║     ██║     
+//    ██╔══██║██║     ██║     
+//    ██║  ██║███████╗███████╗
+//    ╚═╝  ╚═╝╚══════╝╚══════╝
+//    ██╗  ██╗███╗   ██╗██╗██╗   ██╗███████╗███████╗
+//    ██║ ██╔╝████╗  ██║██║██║   ██║██╔════╝██╔════╝
+//    █████╔╝ ██╔██╗ ██║██║██║   ██║█████╗  ███████╗
+//    ██╔═██╗ ██║╚██╗██║██║╚██╗ ██╔╝██╔══╝  ╚════██║
+//    ██║  ██╗██║ ╚████║██║ ╚████╔╝ ███████╗███████║
+//    ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝  ╚══════╝╚══════╝
+
+
+
+               // ＡＬＬＫＮＩＶＥＳ  //  
+
+
+const light = slider(1,0,1)
+
+const sizzle = slider(300,300,10000)
+
+const shadow = slider(0,0,1)
+
+
+//DRUMS
+
+const boots = "rolandtr909_bd" 
+const cats = "rolandtr909_cp"
+const hats = "rolandtr808_hh"
+const amen = 'https://sarahrex666.github.io/STRUDELSONGS/amen.wav'
+const riff = 'https://sarahrex666.github.io/STRUDELSONGS/AMRIFF.wav'
+const sc = "D:minor"
+
+// samples({
+//   amen: 'https://sarahrex666.github.io/STRUDELSONGS/amen.wav',
+//   riff: 'https://sarahrex666.github.io/STRUDELSONGS/AMRIFF.wav',
+//   riff2: 'https://sarahrex666.github.io/STRUDELSONGS/FMRIFF.wav'
+// })
+
+_$: setcpm(100/4)
+
+
+
+$: s(boots).fast(4).n(1).orbit(1).almostNever(ply("2"))
+
+$: s(cats).fast(2).room(.7)
+
+$: n("0 0 2 5 0 0 2 6").s("supersaw").scale(sc).oct(-1).detune(.3).spread(1).room(.3)
+.lpf(sine.range(500, 3000)).lpq(5)
+
+$: s("white").fast(16).decay(.1).almostNever(ply("2 | 4")).room(.3).gain(.2)
+
+$: n("8 8 6 4").scale(sc).s("sawtooth").oct(1)
+.slow(2).seg(16).decay(.25).lpf(rand.range(300,3000)).lpq(15).room(2).gain(.5)
+
+$: n("0").s("supersaw").scale(sc).oct(-2).spread(1).decay(4).detune(.5)
+
+
+
+
+
+
+
+
+
+
+$: all(x=>x.compressor("-20:20:10:.002:.02"))
+
+
+//FX
+
+//  all(x=>x.lpf("1000"))
